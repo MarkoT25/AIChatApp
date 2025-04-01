@@ -43,3 +43,6 @@ chat-app/.vercel
 # typescript
 chat-app/*.tsbuildinfo
 chat-app/next-env.d.ts
+
+# google sentiment api
+backend/markochatapp-2089f9e1d280.json
