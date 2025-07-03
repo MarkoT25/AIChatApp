@@ -16,10 +16,14 @@ const SettingsPage = async () => {
   }
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
-    queryKey: ["authUser"],
-    queryFn: authUser,
-  });
+    const user = await queryClient.fetchQuery({
+      queryKey: ["authUser"],
+      queryFn: authUser,
+    });
+  
+    if (!user?._id) {
+      redirect("/login");
+    }
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

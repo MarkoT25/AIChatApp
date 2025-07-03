@@ -56,4 +56,5 @@ const ChatboxMessage = ({ message, selectedUser }: ChatboxMessageProps) => {
   );
 };
 
+
 export default ChatboxMessage;

@@ -16,9 +16,13 @@ interface MenuNavigationButtonProps {
 const MenuNavigationButton = ({ button, index }: MenuNavigationButtonProps) => {
   const pathname = usePathname();
   const isActive = pathname.includes(button.path.replace(/\//g, ""));
+  const linkHref = button.path === "/more" ? "" : button.path;
   return (
-    <Link href={button.path} key={index}>
-      <button.icon color={isActive ? '#FEFEFE' : '#28282A'} className="size-[24px] text-on-surface transform-color duration-200" />
+    <Link href={linkHref} key={index}>
+      <button.icon
+        color={isActive ? "#FEFEFE" : "#28282A"}
+        className="size-[24px] text-on-surface transform-color duration-200"
+      />
     </Link>
   );
 };

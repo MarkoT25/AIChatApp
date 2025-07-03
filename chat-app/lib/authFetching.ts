@@ -78,7 +78,7 @@ export const authUser = async (
     const token = nextCookies.get('jwt')?.value;
 
     if (!token) {
-        console.error('No token found');
+        console.log('No token found');
         return;
     }
 

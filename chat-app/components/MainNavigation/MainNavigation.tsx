@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import React from "react";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { HiMiniSquaresPlus } from "react-icons/hi2";
 import MenuNavUserDropdown from "./MenuNavUserDropdown";
 import MenuNavigationButton from "./MenuNavigationButton";
+import { UserType } from "@/interfaces/types";
 
 const navButtonsArray = [
   {
@@ -12,16 +13,6 @@ const navButtonsArray = [
     icon: BiSolidMessageRounded,
     path: "/chat",
   },
-  // {
-  //   name: "Contacts",
-  //   icon: BookUser,
-  //   path: "/contacts",
-  // },
-  // {
-  //   name: "Calls",
-  //   icon: BsFillTelephoneFill,
-  //   path: "/calls",
-  // },
   {
     name: "More",
     icon: HiMiniSquaresPlus,
@@ -29,7 +20,14 @@ const navButtonsArray = [
   },
 ];
 
-const MainNavigation = () => {
+interface MainNavigationProps {
+  loggedUser: UserType;
+}
+
+const MainNavigation = ({ loggedUser }: MainNavigationProps) => {
+  if (!loggedUser || !loggedUser._id) {
+    return null;
+  }
   return (
     <div className="absolute top-0 left-0 w-[100px] h-full hidden md:flex flex-col justify-between bg-primary-700 py-5">
       <div className="w-full flex flex-col gap-8 px-3">

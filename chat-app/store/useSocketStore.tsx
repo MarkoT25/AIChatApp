@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { io, Socket } from "socket.io-client";
 
-const SOCKET_URL = "http://localhost:8000"; //BACKEND URL
+const SOCKET_URL = "http://localhost:5000"; //BACKEND URL
 
 interface SocketState {
   socket: Socket | null;

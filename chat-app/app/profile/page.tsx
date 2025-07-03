@@ -16,10 +16,14 @@ const ProfilePage = async () => {
   }
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
+  const user = await queryClient.fetchQuery({
     queryKey: ["authUser"],
     queryFn: authUser,
   });
+
+  if (!user?._id) {
+    redirect("/login");
+  }
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
