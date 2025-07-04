@@ -21,7 +21,7 @@ const ChatMessagesSection = ({
     router.push(`/chat/${user._id}`);
   };
   return (
-    <div className="w-[20%] min-w-[320px] flex flex-col gap-3 h-full bg-surface">
+    <div className="hidden md:flex w-[20%] min-w-[320px] flex-col gap-3 h-full bg-surface">
       <div className="w-full flex items-center justify-start p-5 border-b-[1.5px] border-gray-800">
         <p className="text-20 h-[40px] flex items-center text-on-surface font-semibold">
           Chats
