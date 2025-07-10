@@ -24,18 +24,16 @@ const SignUpContainer = () => {
     mutationFn: ({ username, email, password }: SignUpData) =>
       fetchSignUp(username, email, password),
     onSuccess: (data) => {
-      if (data.message === "User created successfully") {
+      if (data?.message === "User created successfully") {
         console.log("Sign up success", data);
         router.push("/chat");
         setIsCreating(false);
+      } else {
+        console.log("Sign up error", data);
+        setError(data);
+        setIsCreating(false);
       }
-      console.log("Sign up error", data);
-      setError(data);
-      setIsCreating(false);
-    },
-    onError: (error) => {
-      console.log("Sign up error", error);
-    },
+    }
   });
 
   function handleSignUp(e: React.FormEvent<HTMLFormElement>) {
